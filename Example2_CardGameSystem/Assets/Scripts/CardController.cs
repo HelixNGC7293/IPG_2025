@@ -137,11 +137,13 @@ public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 			{
 				//Calculate offset so the player can smoothly pick up the card
 				rectTrans.localScale = selectedScale;
-				Vector3 globalMousePos;
-				if (RectTransformUtility.ScreenPointToWorldPointInRectangle(rectTrans, eventData.position, eventData.pressEventCamera, out globalMousePos))
-				{
-					rectTrans.position = globalMousePos;
-				}
+				//Vector3 globalMousePos;
+				//if (RectTransformUtility.ScreenPointToWorldPointInRectangle(rectTrans, eventData.position, eventData.pressEventCamera, out globalMousePos))
+				//{
+				//	rectTrans.position = globalMousePos;
+				//}
+
+				rectTrans.anchoredPosition += eventData.delta;
 				//Another way: control anchoredPosition Vector2 to make it follow the mouse (Not recommended)
 				//rectTrans.anchoredPosition = eventData.position - new Vector2(Screen.width / 2, 0);
 			}
