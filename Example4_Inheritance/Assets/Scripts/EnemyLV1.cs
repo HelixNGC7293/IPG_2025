@@ -6,8 +6,8 @@ public class EnemyLV1 : EnemyBase
 {
     protected override void TimerContent()
     {
-        //Recover health
-        nav.SetDestination(target.position);
+		//Recover health
+		nav.SetDestination(target.position);
     }
 
     protected override void Damaged(float damage)
