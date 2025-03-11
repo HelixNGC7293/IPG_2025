@@ -44,9 +44,9 @@ public class PlayerUnit : MonoBehaviour, IMover
         {
             newVel = newVel.normalized * 1;
         }
-        newVel.y = rB.velocity.y;
+        newVel.y = rB.linearVelocity.y;
 
-        rB.velocity = newVel;
+        rB.linearVelocity = newVel;
     }
 
 	public void Remove()
