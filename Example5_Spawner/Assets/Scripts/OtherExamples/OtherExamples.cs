@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static OtherExamples;
 public class OtherExamples : MonoBehaviour
 {
-    ItemClassExample item1 = new ItemClassExample("Magical Potion", 120);
-    ItemStructExample itemA = new ItemStructExample("Magical Potion", 120);
 
-    struct ItemStructExample
+	public ItemClassExample item1 = new ItemClassExample("Magical Potion", 120);
+	public ItemStructExample itemA = new ItemStructExample("Magical Potion", 120);
+
+	public struct ItemStructExample
     {
         public string name;
         public int price;
@@ -18,22 +19,22 @@ public class OtherExamples : MonoBehaviour
             name = n;
             price = p;
         }
-    }
+	}
+	public class ItemClassExample
+	{
+		public string name = "Health Potion";
+		public int price = 10;
 
-    class ItemClassExample
-    {
-        public string name = "Health Potion";
-        public int price = 10;
+		//Constructor
+		public ItemClassExample(string n, int p)
+		{
+			name = n;
+			price = p;
+		}
+	}
 
-        //Constructor
-        public ItemClassExample(string n, int p)
-	    {
-            name = n;
-            price = p;
-        }
-    }
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
         //Class Object is reference type, which can't be dublicate by just using '='
         var item2 = item1;
