@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
     Transform playerGroup;
 
     public Transform playerTarget;
-
     int _playerNum;
     int PlayerNum {
         get
