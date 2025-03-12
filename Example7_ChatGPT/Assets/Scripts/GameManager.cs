@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
 
     public void ReceiveChatGPTReply(string message)
     {
-        print(message);
 
         try
         {
@@ -68,8 +67,12 @@ public class GameManager : MonoBehaviour
                     message += "}";
                 }
             }
+            // \ -> \\
             message = message.Replace("\\", "\\\\");
-            NPCJSONReceiver npcJSON = JsonUtility.FromJson<NPCJSONReceiver>(message);
+            // \\" -> \"
+			message = message.Replace("\\\\\"", "\\\"");
+			print(message);
+			NPCJSONReceiver npcJSON = JsonUtility.FromJson<NPCJSONReceiver>(message);
             string talkLine = npcJSON.reply_to_player;
             tX_AIReply.text = "<color=#ff7082>" + npcName + ": </color>" + talkLine;
 

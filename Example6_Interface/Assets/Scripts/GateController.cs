@@ -5,29 +5,34 @@ using TMPro;
 
 public class GateController : MonoBehaviour, IMover
 {
-    [SerializeField]
-    float gateSpeed = -10;
-    [SerializeField]
-    TextMeshPro[] tX_Gates;
+	public Vector3 Position
+	{
+		get
+		{
+			return transform.position;
+		}
+		set
+		{
+			transform.position = value;
+		}
+	}
 
-    bool isGateTriggered = false;
+	//Moving Speed
+	[SerializeField]
+	float gateSpeed = -10;
 
-    public Vector3 Position
-    {
-        get
-        {
-            return transform.position;
-        }
-        set
-        {
-            transform.position = value;
-        }
-    }
+	//Display gate functions
+	[SerializeField]
+	TextMeshPro[] tX_Gates;
 
-    GameManager.Ability[] gateAbility;
+	//Only the first player passing through gate will the trigger the ability
+	bool isGateTriggered = false;
 
-    // Start is called before the first frame update
-    void Start()
+	//Store current gate ability
+	GameManager.Ability[] gateAbility;
+
+	// Start is called before the first frame update
+	void Start()
     {
         gateAbility = new GameManager.Ability[] { 
             new GameManager.Ability(Random.Range(0, 4), Random.Range(1, 10)), 

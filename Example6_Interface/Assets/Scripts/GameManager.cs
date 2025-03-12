@@ -21,15 +21,19 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     TextMeshPro tX_PlayerNum;
-    [SerializeField]
+	//Prefab handler
+	[Header("Prefab Handler")]
+	[SerializeField]
     GateController gate_Prefab;
     [SerializeField]
     PlayerUnit playerUnit_Prefab;
-    [SerializeField]
+	//Player Container
+	[SerializeField]
     Transform playerGroup;
 
     public Transform playerTarget;
-    int _playerNum;
+	//Display how many players
+	int _playerNum;
     int PlayerNum {
         get
 		{
@@ -174,16 +178,5 @@ public class GameManager : MonoBehaviour
 
         return decreasedNum;
     }
-
-    [System.Serializable]
-	public struct Potion
-	{
-		public int id;
-		public string name;
-		public int remainingUseTimes;
-	}
-
-    [SerializeField]
-    Potion[] potion;
 
 }
